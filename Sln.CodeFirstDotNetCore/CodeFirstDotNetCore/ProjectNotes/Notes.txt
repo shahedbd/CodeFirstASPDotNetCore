@@ -1,0 +1,21 @@
+﻿
+
+DB Mifration cmd:
+
+
+#First step:
+Go to Package Manager Console:
+Add-Migration InitialCreate
+Update-Database
+
+
+#After update DB Contex-01
+Add-Migration 1stUpdate
+Update-Database
+
+#After update DB Contex-02
+Add-Migration 2ndUpdate
+Update-Database
+
+To be continue
+
