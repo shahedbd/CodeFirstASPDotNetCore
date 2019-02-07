@@ -33,7 +33,7 @@ namespace CodeFirstDotNetCore.Controllers
             }
 
             var personalInfo = await _context.PersonalInfo
-                .FirstOrDefaultAsync(m => m.PersonalInfoID == id);
+                .FirstOrDefaultAsync(m => m.ID == id);
             if (personalInfo == null)
             {
                 return NotFound();
@@ -53,13 +53,13 @@ namespace CodeFirstDotNetCore.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PersonalInfoID,FirstName,LastName,DateOfBirth,City,Country,MobileNo,NID,Email,Status,CreationUser,CreationDateTime,LastUpdateUser,LastUpdateDateTime")] PersonalInfo personalInfo)
+        public async Task<IActionResult> Create([Bind("ID,FirstName,LastName,DateOfBirth,City,Country,MobileNo,NID,Email,Status,CreationUser,CreationDateTime,LastUpdateUser,LastModifiedDateTime")] PersonalInfo personalInfo)
         {
             if (ModelState.IsValid)
             {
                 personalInfo.Status = 1;
                 personalInfo.CreationUser = "Admin";
-                personalInfo.CreationDateTime = DateTime.Now;
+                personalInfo.CreatedDate = DateTime.Now;
                 _context.Add(personalInfo);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -88,9 +88,9 @@ namespace CodeFirstDotNetCore.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("PersonalInfoID,FirstName,LastName,DateOfBirth,City,Country,MobileNo,NID,Email,Status,CreationUser,CreationDateTime,LastUpdateUser,LastUpdateDateTime")] PersonalInfo personalInfo)
+        public async Task<IActionResult> Edit(long id, [Bind("ID,FirstName,LastName,DateOfBirth,City,Country,MobileNo,NID,Email,Status,CreationUser,CreationDateTime,LastUpdateUser,LastModifiedDateTime")] PersonalInfo personalInfo)
         {
-            if (id != personalInfo.PersonalInfoID)
+            if (id != personalInfo.ID)
             {
                 return NotFound();
             }
@@ -100,13 +100,13 @@ namespace CodeFirstDotNetCore.Controllers
                 try
                 {
                     personalInfo.LastUpdateUser = "Admin";
-                    personalInfo.LastUpdateDateTime = DateTime.Now;
+                    personalInfo.LastModifiedDate = DateTime.Now;
                     _context.Update(personalInfo);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PersonalInfoExists(personalInfo.PersonalInfoID))
+                    if (!PersonalInfoExists(personalInfo.ID))
                     {
                         return NotFound();
                     }
@@ -129,7 +129,7 @@ namespace CodeFirstDotNetCore.Controllers
             }
 
             var personalInfo = await _context.PersonalInfo
-                .FirstOrDefaultAsync(m => m.PersonalInfoID == id);
+                .FirstOrDefaultAsync(m => m.ID == id);
             if (personalInfo == null)
             {
                 return NotFound();
@@ -151,7 +151,7 @@ namespace CodeFirstDotNetCore.Controllers
 
         private bool PersonalInfoExists(long id)
         {
-            return _context.PersonalInfo.Any(e => e.PersonalInfoID == id);
+            return _context.PersonalInfo.Any(e => e.ID == id);
         }
     }
 }

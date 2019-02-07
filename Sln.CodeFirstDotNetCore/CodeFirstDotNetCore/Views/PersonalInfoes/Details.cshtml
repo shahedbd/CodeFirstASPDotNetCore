@@ -71,10 +71,10 @@
             @Html.DisplayFor(model => model.CreationUser)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.CreationDateTime)
+            @Html.DisplayNameFor(model => model.CreatedDate)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.CreationDateTime)
+            @Html.DisplayFor(model => model.CreatedDate)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.LastUpdateUser)
@@ -83,14 +83,14 @@
             @Html.DisplayFor(model => model.LastUpdateUser)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.LastUpdateDateTime)
+            @Html.DisplayNameFor(model => model.LastModifiedDate)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.LastUpdateDateTime)
+            @Html.DisplayFor(model => model.LastModifiedDate)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.PersonalInfoID">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>

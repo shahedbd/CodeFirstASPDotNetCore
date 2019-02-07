@@ -23,7 +23,7 @@ namespace CodeFirstDotNetCore.Migrations
 
             modelBuilder.Entity("CodeFirstDotNetCore.Models.PersonalInfo", b =>
                 {
-                    b.Property<long>("PersonalInfoID")
+                    b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -45,7 +45,7 @@ namespace CodeFirstDotNetCore.Migrations
 
                     b.Property<byte>("Status");
 
-                    b.HasKey("PersonalInfoID");
+                    b.HasKey("ID");
 
                     b.ToTable("PersonalInfos");
                 });

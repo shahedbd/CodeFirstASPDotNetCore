@@ -20,7 +20,7 @@ namespace CodeFirstDotNetCore.Migrations
                 nullable: true);
 
             migrationBuilder.AddColumn<DateTime>(
-                name: "LastUpdateDateTime",
+                name: "LastModifiedDateTime",
                 table: "PersonalInfos",
                 nullable: false,
                 defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
@@ -41,7 +41,7 @@ namespace CodeFirstDotNetCore.Migrations
                     CreationUser = table.Column<string>(nullable: true),
                     CreationDateTime = table.Column<DateTime>(nullable: false),
                     LastUpdateUser = table.Column<string>(nullable: true),
-                    LastUpdateDateTime = table.Column<DateTime>(nullable: false)
+                    LastModifiedDateTime = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -63,7 +63,7 @@ namespace CodeFirstDotNetCore.Migrations
                 table: "PersonalInfos");
 
             migrationBuilder.DropColumn(
-                name: "LastUpdateDateTime",
+                name: "LastModifiedDateTime",
                 table: "PersonalInfos");
 
             migrationBuilder.DropColumn(

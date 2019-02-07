@@ -17,7 +17,7 @@ namespace CodeFirstDotNetCore.Migrations
             migrationBuilder.AddPrimaryKey(
                 name: "PK_PersonalInfo",
                 table: "PersonalInfo",
-                column: "PersonalInfoID");
+                column: "ID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -33,7 +33,7 @@ namespace CodeFirstDotNetCore.Migrations
             migrationBuilder.AddPrimaryKey(
                 name: "PK_PersonalInfos",
                 table: "PersonalInfos",
-                column: "PersonalInfoID");
+                column: "ID");
         }
     }
 }

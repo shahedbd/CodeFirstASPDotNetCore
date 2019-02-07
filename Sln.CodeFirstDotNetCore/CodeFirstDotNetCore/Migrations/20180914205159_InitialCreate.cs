@@ -12,7 +12,7 @@ namespace CodeFirstDotNetCore.Migrations
                 name: "PersonalInfos",
                 columns: table => new
                 {
-                    PersonalInfoID = table.Column<long>(nullable: false)
+                    ID = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
@@ -26,7 +26,7 @@ namespace CodeFirstDotNetCore.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PersonalInfos", x => x.PersonalInfoID);
+                    table.PrimaryKey("PK_PersonalInfos", x => x.ID);
                 });
         }
 

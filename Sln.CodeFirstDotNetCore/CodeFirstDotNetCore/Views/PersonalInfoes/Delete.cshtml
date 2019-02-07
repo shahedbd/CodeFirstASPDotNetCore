@@ -72,10 +72,10 @@
             @Html.DisplayFor(model => model.CreationUser)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.CreationDateTime)
+            @Html.DisplayNameFor(model => model.CreatedDate)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.CreationDateTime)
+            @Html.DisplayFor(model => model.CreatedDate)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.LastUpdateUser)
@@ -84,15 +84,15 @@
             @Html.DisplayFor(model => model.LastUpdateUser)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.LastUpdateDateTime)
+            @Html.DisplayNameFor(model => model.LastModifiedDate)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.LastUpdateDateTime)
+            @Html.DisplayFor(model => model.LastModifiedDate)
         </dd>
     </dl>
     
     <form asp-action="Delete">
-        <input type="hidden" asp-for="PersonalInfoID" />
+        <input type="hidden" asp-for="ID" />
         <input type="submit" value="Delete" class="btn btn-default" /> |
         <a asp-action="Index">Back to List</a>
     </form>
